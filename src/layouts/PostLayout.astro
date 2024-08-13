@@ -1,7 +1,16 @@
 ---
 const { frontmatter } = Astro.props;
+import Container from "../components/Container.astro";
+import BaseLayout from "./BaseLayout.astro";
+import "./../styles/global.css"
 ---
-<a href="/blog">Blog</a>
-<h1>{frontmatter.title}</h1>
-<p>Published on: {frontmatter.pubDate.toString().slice(0,10)}</p>
-<slot />
+<BaseLayout>
+  <Container>
+    <a href="/blog">blog</a>
+    <h1>{frontmatter.title}</h1>
+    <p class="font-normal">Published: {frontmatter.pubDate.toString().slice(0,10)}</p>
+    <main class="font-normal prose">
+      <slot />
+    </main>
+  </Container>
+</BaseLayout>

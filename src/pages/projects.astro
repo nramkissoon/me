@@ -1,9 +1,11 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Container from '../components/Container.astro';
 const allProjects = await Astro.glob('../content/projects/*.md');
 ---
 {}
 <BaseLayout>
+  <Container>
   <a href="/">Home</a>
   {allProjects.map((project) => 
   <li>
@@ -17,4 +19,5 @@ const allProjects = await Astro.glob('../content/projects/*.md');
     )}
   </li>
   )}
+  </Container>
 </BaseLayout>
