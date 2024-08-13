@@ -8,16 +8,19 @@ const allProjects = await Astro.glob('../content/projects/*.md');
   <Container>
   <a href="/">Home</a>
   {allProjects.map((project) => 
-  <li>
-    <a href={project.frontmatter.url}>{project.frontmatter.title}</a>
-    <p>{project.frontmatter.description}</p>
-    
-    {project.frontmatter.skills.map((skill: string) => 
-      <li>
-        {skill}
-      </li>
-    )}
-  </li>
+  <ul class="list-none flex flex-col gap-3">
+    <li>
+      <a href={project.frontmatter.url}>{project.frontmatter.title}</a>
+      <p class="font-normal">{project.frontmatter.description}</p>
+      <ul class="list-none flex gap-2 font-normal">
+      {project.frontmatter.skills.map((skill: string) => 
+        <li>
+          {skill}
+        </li>
+      )}
+      </ul>
+    </li>
+  </ul>
   )}
   </Container>
 </BaseLayout>
