@@ -1,7 +1,20 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+const allProjects = await Astro.glob('../content/projects/*.md');
 ---
-
+{}
 <BaseLayout>
   <a href="/">Home</a>
+  {allProjects.map((project) => 
+  <li>
+    <a href={project.frontmatter.url}>{project.frontmatter.title}</a>
+    <p>{project.frontmatter.description}</p>
+    
+    {project.frontmatter.skills.map((skill: string) => 
+      <li>
+        {skill}
+      </li>
+    )}
+  </li>
+  )}
 </BaseLayout>
