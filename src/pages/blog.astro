@@ -6,7 +6,7 @@ const allPosts = await Astro.glob('./posts/*.md');
 
 <BaseLayout>
   <Container>
-    <a href="/">home</a>
+    <a href="/" class="text-sm">home</a>
     <ul class="list-none flex flex-col gap-1">
       {allPosts
         .sort((a, b) => new Date(b.frontmatter.pubDate).getTime() - new Date(a.frontmatter.pubDate).getTime())

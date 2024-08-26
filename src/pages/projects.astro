@@ -6,7 +6,7 @@ const allProjects = await Astro.glob('../content/projects/*.md');
 
 <BaseLayout>
   <Container>
-  <a href="/">Home</a>
+  <a href="/" class="text-sm">home</a>
   <ul class="list-none flex flex-col gap-3 font-normal  ">
   {allProjects.map((project) => 
     <li>
